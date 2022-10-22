@@ -1,12 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { mongoAPI } from '../config'
-
-type Energy = {
-  _id: string
-  ts: string
-  ein: number
-  eout: number
-}
+import type { Energy } from '../../../common/types'
 
 const getEnergy = async (deviceId: string, dateStr: string) => {
   const response = await mongoAPI<{ documents: Energy[] }>({

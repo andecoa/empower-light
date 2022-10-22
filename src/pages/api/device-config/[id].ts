@@ -1,18 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { mongoAPI } from '../config'
-
-type DeviceConfig = {
-  _id: string
-  version: string
-  date: string
-  led_freq_sec: number
-  data_log_freq_min: number
-  data_upload_freq_min: number
-  data_download_freq_min: number
-  e2t_url: string
-  l: string
-  n: string
-}
+import type { DeviceConfig } from '../../../common/types'
 
 const getDeviceConfig = async (deviceId: string) => {
   const response = await mongoAPI<{ documents: DeviceConfig[] }>({

@@ -1,11 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { mongoAPI } from '../config'
-
-type Device = {
-  _id: string
-  l: string
-  n: string
-}
+import type { Device } from '../../../common/types'
 
 const getAllDevices = async () => {
   const response = await mongoAPI<{ documents: Device[] }>({
