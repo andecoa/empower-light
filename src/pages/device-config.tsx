@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import { useDevices } from '../common/queries/useDevices'
+import { useDeviceConfig } from '../common/queries/useDeviceConfig'
 
 const Home: NextPage = () => {
-  const { data, isLoading, isError } = useDevices()
+  const { data, isLoading, isError } = useDeviceConfig('ESP-9A6C07')
 
   if (isLoading) {
     return <div>Loading...</div>

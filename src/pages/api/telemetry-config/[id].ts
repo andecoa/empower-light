@@ -1,10 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { mongoAPI } from '../config'
-
-type TelemetryConfig = {
-  _id: string
-  data: [{ [key: string]: any }]
-}
+import type { TelemetryConfig } from '../../../common/types'
 
 const getTelemetryConfig = async (deviceId: string) => {
   const response = await mongoAPI<{ documents: TelemetryConfig[] }>({
