@@ -4,16 +4,12 @@ import DeviceSearch from './DeviceSearch'
 
 const navigation = [
   {
-    name: 'Device Details',
-    route: '/device-details',
-  },
-  {
-    name: 'Donations',
+    name: 'Donate With Us',
     route: '/donations',
   },
   {
-    name: 'Settings',
-    route: '/settings',
+    name: 'Device Details',
+    route: '/device-details',
   },
 ]
 
@@ -30,8 +26,8 @@ export const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div className="flex flex-nowrap h-screen">
-      <div className="w-80 bg-blue-300 p-10 pb-20 flex flex-col justify-between">
+    <div className="flex flex-nowrap">
+      <div className="w-80 bg-blue-300 p-10 pb-20 flex flex-col justify-between fixed h-screen">
         <div>
           <div className="mb-4">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +52,7 @@ export const Layout = ({ children }: LayoutProps) => {
           ))}
         </div>
       </div>
-      <div className="p-10">{children}</div>
+      <div className="p-10 ml-80 w-full">{children}</div>
     </div>
   )
 }

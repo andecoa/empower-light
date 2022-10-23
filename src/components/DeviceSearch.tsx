@@ -1,9 +1,9 @@
 import Router, { useRouter } from 'next/router'
-import { useDevices } from '../common/queries/useDevices'
+import { useOrganizations } from '../common/queries/useOrganizations'
 
 const DeviceSearch = () => {
   const router = useRouter()
-  const { data, error, isLoading } = useDevices()
+  const { data, error, isLoading } = useOrganizations()
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     Router.push({
@@ -29,11 +29,15 @@ const DeviceSearch = () => {
           : 'Select device'}
       </option>
       {data &&
-        data.map((device) => (
-          <option value={device._id} key={device._id}>
-            {device._id}
-          </option>
-        ))}
+        data.map((org) => {
+          return org.deviceIds.map((deviceId) => {
+            return (
+              <option value={deviceId} key={deviceId}>
+                {org.name} - {deviceId}
+              </option>
+            )
+          })
+        })}
     </select>
   )
 }
