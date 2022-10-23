@@ -1,18 +1,15 @@
+import DeviceSearch from '../components/DeviceSearch'
 import type { NextPage } from 'next'
-import { useDevices } from '../common/queries/useDevices'
 
 const Home: NextPage = () => {
-  const { data, isLoading, isError } = useDevices()
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
-  if (isError) {
-    return <div>Error encountered. Please try again.</div>
-  }
-
-  return <div>{JSON.stringify(data)}</div>
+  return (
+    <div>
+      <h1 className="text-4xl font-bold text-blue-500 text-center mb-4">
+        Hello
+      </h1>
+      <DeviceSearch />
+    </div>
+  )
 }
 
 export default Home

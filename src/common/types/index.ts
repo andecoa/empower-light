@@ -32,3 +32,9 @@ export type TelemetryConfig = {
 export type APIError = {
   message: string
 }
+
+export type Organization = {
+  _id: string
+  name: string
+  deviceIds: string[]
+}
