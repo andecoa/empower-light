@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import DeviceSearch from './DeviceSearch'
 
 const navigation = [
   {
@@ -37,9 +38,12 @@ export const Layout = ({ children }: LayoutProps) => {
               <circle cx="50" cy="50" r="50" fill="white" />
             </svg>
           </div>
-          <div>
+          <div className="mb-8">
             <h2 className="text-4xl font-bold text-blue-500">Welcome,</h2>
             <span className="text-xl text-blue-500">Empower2Transform</span>
+          </div>
+          <div>
+            <DeviceSearch />
           </div>
         </div>
         <div className="flex flex-col space-y-2">
