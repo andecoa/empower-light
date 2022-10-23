@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const navigation = [
   {
@@ -16,6 +17,17 @@ const navigation = [
 ]
 
 export const Layout = ({ children }: LayoutProps) => {
+  const router = useRouter()
+  const hideNavBar = router.pathname === '/_error' || router.pathname === '/'
+
+  if (hideNavBar) {
+    return (
+      <div className="bg-blue-300 flex flex-col justify-center items-center h-screen">
+        {children}
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-nowrap h-screen">
       <div className="w-80 bg-blue-300 p-10 pb-20 flex flex-col justify-between">
