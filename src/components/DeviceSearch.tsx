@@ -12,16 +12,16 @@ const DeviceSearch = () => {
     })
   }
 
-  const defaultPath = router.query.deviceId
+  const selectedDevice = router.query.deviceId
 
   return (
     <select
       onChange={handleSelect}
-      className="w-full max-w-72 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+      className="w-60 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
       disabled={isLoading}
-      defaultValue={defaultPath || undefined}
+      defaultValue={selectedDevice || 'disabled'}
     >
-      <option disabled>
+      <option disabled value="disabled">
         {isLoading
           ? 'Loading devices'
           : error || !data
