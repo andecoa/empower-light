@@ -11,5 +11,10 @@ const fetcher: Fetcher<Device[], string> = (url: string) =>
 
 export const useDevices = () => {
   const { data, error } = useSWR<Device[], APIError>('/api/devices', fetcher)
-  return { data, isLoading: !error && !data, error }
+  // I'm assuming device ID is suffixed with their relationships
+  const normalizedData = data?.map((device) => ({
+    ...device,
+    _id: device._id.split('.')[0],
+  }))
+  return { data: normalizedData, isLoading: !error && !data, error }
 }
